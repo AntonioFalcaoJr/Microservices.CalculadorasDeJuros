@@ -7,6 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Polly;
+using Polly.Extensions.Http;
+using System;
+using System.Net;
+using System.Net.Http;
 
 namespace Microservices.CalculadorasDeJuros.Api
 {
@@ -56,8 +61,19 @@ namespace Microservices.CalculadorasDeJuros.Api
                 });
             });
 
+            services.AddHttpClient("taxaDeJurosV1", c => { c.BaseAddress = new Uri(_config["UrlDaApiDeTaxasDeJurosV1"]); })
+                .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddHttpClient("taxaDeJurosV2", c => { c.BaseAddress = new Uri(_config["UrlDaApiDeTaxasDeJurosV2"]); })
+                .AddPolicyHandler(GetRetryPolicy());
+
             IocServices.Register(services);
             IocDomain.Register(services);
         }
+
+        private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy() =>
+            HttpPolicyExtensions.HandleTransientHttpError()
+                .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
 }
