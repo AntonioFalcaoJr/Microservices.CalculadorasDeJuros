@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\2 - Services\Microservices.CalculadorasDeJuros.Services\Microservices.CalculadorasDeJuros.Services.csproj" />
     <ProjectReference Include="..\..\3 - Domain\Microservices.CalculadorasDeJuros.Domain\Microservices.CalculadorasDeJuros.Domain.csproj" />
+    <ProjectReference Include="..\..\4 - CrossCutting\Microservices.CalculadorasDeJuros.CrossCutting\Microservices.CalculadorasDeJuros.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>
