@@ -14,15 +14,15 @@ namespace Microservices.CalculadorasDeJuros.Services
             _taxasDeJurosV1Client = taxasDeJurosV1Client;
         }
 
-        public async Task<TaxaDeJurosDto> GetAsync(decimal valorInicial, int meses)
+        public async Task<CalculoDeJurosDto> GetAsync(decimal valorInicial, int meses)
         {
             var taxaDeJuros = await _taxasDeJurosV1Client.GetAsync();
             return Calcular(valorInicial, meses, taxaDeJuros.Valor);
         }
 
-        private TaxaDeJurosDto Calcular(decimal valorInicial, int meses, decimal taxaDeJuros)
+        private CalculoDeJurosDto Calcular(decimal valorInicial, int meses, decimal taxaDeJuros)
         {
-            var dto = new TaxaDeJurosDto();
+            var dto = new CalculoDeJurosDto();
 
             var pow = Math.Pow((double)(1 + taxaDeJuros), meses);
             var result = valorInicial * (decimal)pow;

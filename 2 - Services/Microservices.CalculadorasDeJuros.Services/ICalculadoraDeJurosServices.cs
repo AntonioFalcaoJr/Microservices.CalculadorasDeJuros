@@ -5,6 +5,6 @@ namespace Microservices.CalculadorasDeJuros.Services
 {
     public interface ICalculadoraDeJurosServices
     {
-        Task<TaxaDeJurosDto> GetAsync(decimal valorInicial, int meses);
+        Task<CalculoDeJurosDto> GetAsync(decimal valorInicial, int meses);
     }
 }
