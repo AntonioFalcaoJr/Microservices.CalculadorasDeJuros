@@ -17,20 +17,20 @@ namespace Microservices.CalculadorasDeJuros.Api.Controllers.ApiV1
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] decimal valorInicial, int meses)
+        public async Task<IActionResult> GetAsync([FromQuery] decimal valorInicial, int meses)
         {
             try
             {
-                var result = await _calculadoraDeJurosServices.GetAsync(valorInicial, meses);
+                var calculoDeJurosDto = await _calculadoraDeJurosServices.GetAsync(valorInicial, meses);
 
-                if (result.IsValid())
-                    return Ok(result);
+                if (calculoDeJurosDto.IsValid())
+                    return Ok(calculoDeJurosDto.Resultado);
 
-                return BadRequest(result.GetErrors());
+                return BadRequest(calculoDeJurosDto.GetErrors());
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest("Não foi possível realizar o calculo solicitado, Messagem original do erro:" + e.Message);
             }
         }
     }

@@ -26,7 +26,7 @@ namespace Microservices.CalculadorasDeJuros.Services
 
             var pow = Math.Pow((double)(1 + taxaDeJuros), meses);
             var result = valorInicial * (decimal)pow;
-            dto.Valor = decimal.Parse(result.ToString("##.00"));
+            dto.Resultado = decimal.Parse(result.ToString("##.00"));
 
             return dto;
         }
