@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - Cro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.CalculadorasDeJuros.CrossCutting", "4 - CrossCutting\Microservices.CalculadorasDeJuros.CrossCutting\Microservices.CalculadorasDeJuros.CrossCutting.csproj", "{3B4A6123-18D8-44D3-8408-8068134643C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.CalculadorasDeJuros.Services.Tests", "2 - Services\Microservices.CalculadorasDeJuros.Services.Tests\Microservices.CalculadorasDeJuros.Services.Tests.csproj", "{0733F168-77F5-402D-900A-604E9B001EEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{3B4A6123-18D8-44D3-8408-8068134643C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B4A6123-18D8-44D3-8408-8068134643C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B4A6123-18D8-44D3-8408-8068134643C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0733F168-77F5-402D-900A-604E9B001EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0733F168-77F5-402D-900A-604E9B001EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0733F168-77F5-402D-900A-604E9B001EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0733F168-77F5-402D-900A-604E9B001EEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{D6F62670-1082-4F85-B69C-C5597AF83BE8} = {6AE70B6B-724C-4982-AF51-2C406AD5D0ED}
 		{503FBE64-1ACD-4BF9-B424-54740488FDBD} = {55BBECEE-4BF5-4E5B-B11B-A6B7BF6B2D91}
 		{3B4A6123-18D8-44D3-8408-8068134643C9} = {8EF21AF6-E7D9-4EFB-912B-3B045F0A7413}
+		{0733F168-77F5-402D-900A-604E9B001EEC} = {6AE70B6B-724C-4982-AF51-2C406AD5D0ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C468E522-253B-4BA8-BA9C-7544187347F4}
